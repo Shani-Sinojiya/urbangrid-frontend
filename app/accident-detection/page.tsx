@@ -114,7 +114,7 @@ const Page = () => {
       {data?.data?.map((accident) => (
         <Card
           key={accident.id}
-          img={accident.img}
+          image={accident.img}
           location={accident.location}
         />
       ))}
@@ -124,12 +124,12 @@ const Page = () => {
 
 export default Page;
 
-export function Card(props: { img: string; location: string }) {
+export function Card(props: { image: string; location: string }) {
   return (
     <FlowbiteCard
       className="max-w-sm"
       imgAlt="Meaningful alt text for an image that is not purely decorative"
-      imgSrc={props.img}
+      imgSrc={props.image}
     >
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Acciedent at
