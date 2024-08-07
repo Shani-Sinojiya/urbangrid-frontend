@@ -38,6 +38,16 @@ export function Header() {
         >
           Accident Detection
         </Navbar.Link>
+        <Navbar.Link
+          as={Link}
+          href="/future/feature"
+          className="!text-white hover:!text-gray-200"
+          active={
+            path === "/future/feature" || path === "/future/feature/"
+          }
+        >
+          Future Features
+        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );

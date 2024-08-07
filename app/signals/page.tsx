@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 import useSWR from "swr";
 import { HiInformationCircle } from "react-icons/hi";
+import { info } from "console";
 
 interface SignalData {
   id: string;
@@ -17,13 +18,26 @@ interface ApiResponse {
   message: string;
   success: boolean;
 }
+interface ApiResponse_emr {
+  data: {
+    [key: string]: boolean;
+  };
+  greentimer: number;
+  message: string;
+  success: boolean;
+}
 
-const fetcher = (url: string): Promise<ApiResponse | null> =>
+const fetcher = (url: string): Promise<any | null> =>
   fetch(url).then((response) => response.json());
 
 const Page = () => {
   const { data, error, isLoading, mutate } = useSWR<ApiResponse | null>(
     "https://api.urbangrid.shanisinojiya.tech/signales",
+    fetcher
+  );
+
+  const { data: emerg, mutate: EmrgMutuate } = useSWR<ApiResponse_emr | null>(
+    "https://api.urbangrid.shanisinojiya.tech/emergency-vehicle",
     fetcher
   );
 
@@ -81,6 +95,33 @@ const Page = () => {
     };
   }, [toast]);
 
+  useEffect(() => {
+    const websocs = new WebSocket(
+      "wss://api.urbangrid.shanisinojiya.tech/ws/emergency"
+    );
+
+    websocs.onopen = () => {
+      console.log("WebSocket connection established");
+    };
+
+    websocs.onmessage = (event) => {
+      EmrgMutuate();
+      console.log("WebSocket message received:", event.data);
+    };
+
+    websocs.onerror = (error) => {
+      console.error("WebSocket error:", error);
+    };
+
+    websocs.onclose = () => {
+      console.log("WebSocket connection closed");
+    };
+
+    return () => {
+      websocs.close();
+    };
+  }, [EmrgMutuate]);
+
   if (isLoading) {
     return (
       <div
@@ -130,7 +171,13 @@ const Page = () => {
   return (
     <div className="flex justify-center text-center gap-4 mt-20">
       {data?.data.map((s) => (
-        <Signals key={s.id} id={s.id} count={s.count} status={s.status ?? ""} />
+        <Signals
+          key={s.id}
+          id={s.id}
+          count={s.count}
+          status={s.status ?? ""}
+          emergency={emerg?.data[s.id] ?? false}
+        />
       ))}
     </div>
   );
@@ -142,9 +189,12 @@ interface SignalsProps {
   id: string;
   count: number;
   status: string;
+  emergency: boolean;
 }
 
-const Signals: React.FC<SignalsProps> = ({ id, count, status }) => {
+const Signals: React.FC<SignalsProps> = ({ id, count, status, emergency }) => {
+  if (id == undefined || id.trim().length == 0) return <></>;
+
   return (
     <div className="signals">
       <h2 className="aru">{id}</h2>
@@ -152,6 +202,7 @@ const Signals: React.FC<SignalsProps> = ({ id, count, status }) => {
         <div className={`light ${status === "off" ? "red" : ""}`}></div>
         <div className={`light ${status === "yellow" ? "yellow" : ""}`}></div>
         <div className={`light ${status !== "off" ? "green" : ""}`}></div>
+        <div className={`light ${emergency ? "emergency" : ""}`}></div>
       </div>
       <div className="signal-info">
         <div className="vehicle-count">

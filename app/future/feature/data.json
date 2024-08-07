@@ -1,0 +1,80 @@
+[
+    {
+        "title": "Cyclist Safety features",
+        "description": "Bicycle lanes are crucial for creating safe, efficient, and sustainable urban transportation systems. They provide dedicated space for cyclists, reducing the risk of accidents and conflicts between vehicles and bicycles. By promoting cycling, these lanes help alleviate traffic congestion, decrease air pollution, and reduce the city’s carbon footprint. Bicycle lanes also encourage healthier lifestyles by making cycling a more attractive and accessible mode of transportation. Additionally, they contribute to vibrant and lively streetscapes, enhancing the overall quality of urban life. Investing in bicycle infrastructure supports the development of more equitable and resilient cities where all modes of transportation can coexist harmoniously.",
+        "image": "/assets/images/cyclist-safety.avif",
+        "features": []
+    },
+    {
+        "title": "Environmental impact monitoring",
+        "description": "",
+        "image": "/assets/images/environmental-impact.jpg",
+        "features": [
+            {
+                "title": "Fuel Savings",
+                "description": "Idling vehicles consume fuel without moving, wasting energy and increasing costs. Improved traffic flow reduces this waste. On average, idling can waste up to 0.3 gallons of fuel per hour."
+            },
+            {
+                "title": "Health Benefits",
+                "description": "Reduced pollution levels lead to better respiratory health for the population."
+            },
+            {
+                "title": "Sustainable Environment",
+                "description": "Lower emissions and fuel use support a greener city and combat climate change"
+            }
+        ]
+    },
+    {
+        "title": "Eco-Zones",
+        "description": "Our Smart Traffic Management System includes designated Eco-Zones to promote sustainable transportation and reduce environmental impact.",
+        "image": "/assets/images/eco-zones.jpeg",
+        "features": [
+            {
+                "title": "Priority for Green Vehicles",
+                "description": "co-Zones give priority to electric vehicles and bicycles, reducing emissions and promoting clean transportation."
+            },
+            {
+                "title": "Emission-Free Areas",
+                "description": "Certain areas restrict access to high-emission vehicles, ensuring cleaner air and a healthier environment."
+            },
+            {
+                "title": "Charging Stations",
+                "description": "Conveniently located electric vehicle charging stations within Eco-Zones to encourage the use of electric cars."
+            },
+            {
+                "title": "Public Awareness Campaigns",
+                "description": "Informing the public about the benefits of Eco-Zones and encouraging participation."
+            }
+        ]
+    },
+    {
+        "title": "Emergency Responder Coordination",
+        "description": "Our Smart Traffic Management System ensures swift and efficient emergency responses by coordinating with emergency services.",
+        "image": "/assets/images/emergency-responder.jpg",
+        "features": [
+            {
+                "title": "Priority Routing",
+                "description": "Emergency vehicles, such as ambulances, fire trucks, and police cars, are given priority at traffic signals, ensuring they reach their destinations quickly."
+            },
+            {
+                "title": "Real-Time Traffic Updates",
+                "description": "Emergency responders receive real-time traffic information, allowing them to choose the fastest routes."
+            }
+        ]
+    },
+    {
+        "title": "AI Traffic Signal Predictors",
+        "description": "Our Smart Traffic Management System leverages AI Traffic Signal Predictors to optimize traffic flow and enhance safety, integrating advanced technologies like sound sensors to support emergency responses.",
+        "image": "/assets/images/ai-traffic.jpg",
+        "features": [
+            {
+                "title": "Siren Detection for Emergency Vehicles",
+                "description": "AI-enabled CCTV cameras with integrated sound sensors detect the sirens of ambulances, fire trucks, and police cars, automatically triggering green signals to clear their path."
+            },
+            {
+                "title": "Predictive Traffic Management",
+                "description": "AI algorithms analyze traffic patterns in real-time to predict congestion and adjust signal timings proactively, minimizing traffic jams."
+            }
+        ]
+    }
+]
