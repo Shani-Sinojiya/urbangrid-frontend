@@ -129,7 +129,7 @@ export function Card(props: { image: string; location: string }) {
     <FlowbiteCard
       className="max-w-sm"
       imgAlt="Meaningful alt text for an image that is not purely decorative"
-      imgSrc={props.image}
+      imgSrc={"https://api.urbangrid.shanisinojiya.tech" + props.image}
     >
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Acciedent at
